@@ -16,9 +16,22 @@ Build a list of durations for passing cases. Rewrite the failed comprehension as
 results = [
     {"case": "login", "status": "PASS", "ms": 200},
     {"case": "checkout", "status": "FAIL", "ms": 950},
+    {"case": "checkout", "status": "FAIL", "ms": 1024},
     {"case": "search", "status": "PASS", "ms": 850},
 ]
-failed = [row["case"] for row in results if row["status"] == "FAIL"]
+failed = [item["case"] for item in results if item["status"] == "FAIL"]
 slow = [row["case"] for row in results if row["ms"] > 800]
 print(failed)
 print(slow)
+
+f=[]
+for row in results:
+    if row["status"]=="FAIL":
+        f.append(row["case"])
+
+print("failed",f)
+
+msg="Hello World!"
+
+for c in msg:
+    print(c)

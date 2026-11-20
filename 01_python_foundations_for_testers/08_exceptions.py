@@ -16,7 +16,7 @@ Add "0" to the inputs. Explain why a bare except could hide a programming error.
 def parse_duration(raw):
     duration = float(raw)
     if duration < 0:
-        raise ValueError("Duration cannot be negative")
+        raise ValueError("Duration cannot be negative") # throw an error
     return duration
 
 for raw in ["120", "invalid", "-5"]:

@@ -1,4 +1,5 @@
-[
-  {"username": "alice", "active": true},
-  {"username": "bob", "active": false}
-]
+{
+  "users": [
+    { "username": "alice", "active": true },
+    { "username": "bob", "active": false }
+  ]

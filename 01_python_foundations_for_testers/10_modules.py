@@ -19,3 +19,4 @@ from importlib import import_module
 # import_module accepts the module name as a string.
 checks = import_module("06_functions")
 print("Imported check:", checks.is_acceptable(200, 450))
+print(checks.gen_fib(10))

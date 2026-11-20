@@ -16,9 +16,28 @@ Add another active user to users.json and rerun. Keep valid JSON: double quotes 
 import json
 from pathlib import Path
 
+print(Path(__file__).with_name("users.json"))
+
 source = Path(__file__).with_name("users.json")
 with source.open(encoding="utf-8") as handle:
-    users = json.load(handle)
-for user in users:
-    print(user["username"], user["active"])
-print(f"Active users: {sum(user['active'] for user in users)}")
+    try:
+        users = json.load(handle)
+        print(type(users).__name__)
+        userslist= users["users"]
+        print(type(userslist).__name__)
+
+        for user in userslist:
+            print(user["username"], user["active"])
+
+        print(f"Active users: {sum(user['active'] for user in userslist)}")
+
+    except json.decoder.JSONDecodeError as e:
+        print(e)
+
+print("Other wise working")
+
+
+#print(type(user['active'] for user in userslist))
+
+## instead of users.json create users.yaml File
+# User yamnl.load to load the yamnl file
