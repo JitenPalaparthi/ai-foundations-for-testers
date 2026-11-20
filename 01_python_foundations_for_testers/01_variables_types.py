@@ -40,7 +40,7 @@ Predict int(-2.9), bool("0"), and bool("") before trying them.
 """
 
 case_name = "Login with valid credentials"
-status_code = 200
+status_code = 200 # int
 response_seconds = 0.42
 passed = True
 missing_error = None
@@ -55,8 +55,17 @@ ok= "Hello World!"
 print(type(ok))
 print(type(status_code).__name__, type(response_seconds).__name__)
 print(f"Passed: {passed}; error: {missing_error}")
-print(int("200") == status_code)
+# print("Passed: ",passed)
 
+ok = True # dybamic type, the type of the variable is determined based on the value that is given
+print(f"is Ok: {ok}")
+print(int("200") == status_code)
+print(int(True))# type conversion or type casting
+num = 34234.234
+print(int(num))
+
+print(int("400"))
+#print(int("Jiten"))
 # 1. Text from a CSV or API -> integer for a numeric comparison.
 raw_status = "200"
 converted_status = int(raw_status)
@@ -69,19 +78,19 @@ converted_response = float(raw_response)
 print("Response conversion:", converted_response, type(converted_response).__name__)
 
 # 3. Integer -> string for text-based reporting.
-status_text = str(status_code)
+status_text = str(status_code) # int is converted into stirng using str func
 print("Status for report:", status_text, type(status_text).__name__)
 
 # 4. Implicit numeric conversion: int + float produces a float.
-mixed_total = 2 + 0.5
+mixed_total = 2 + 0.5 # it does not run cimpiled programming, arthemetic
 print("Mixed arithmetic:", mixed_total, type(mixed_total).__name__)
-
+mixed_str = 2 + int("234")
 # 5. Float -> integer removes the fractional part; this is not rounding.
 print("Truncated duration:", int(2.9))
 
 # 6. Boolean conversion checks whether a value is truthy.
-print("Truthiness:", bool(0), bool("False"), bool(""), bool(None))
-raw_flag = "False"
+print("Truthiness:", bool(0), bool("False"), bool(""), bool(None),bool("Jiten"))
+raw_flag = "True"
 # This comparison parses a known true/false input; bool(raw_flag) would be True.
 parsed_flag = raw_flag.strip().lower() == "true"
 print("Text flag:", parsed_flag)
@@ -106,3 +115,5 @@ except ValueError:
 # 0X11   0X45
 # num1 -> 0x11
 # name -> 0X45
+
+# https://github.com/JitenPalaparthi/ai-foundations-for-testers

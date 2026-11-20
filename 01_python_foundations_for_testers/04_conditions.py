@@ -23,3 +23,12 @@ else:
     outcome = "FAIL: too slow"
 print(outcome)
 print(status_code == 200 and response_ms <= 800)
+# True and True
+# True
+
+ok = status_code == 200 and response_ms <= 800
+
+if ok!=True:
+    print("False")
+else:
+    print("True")
