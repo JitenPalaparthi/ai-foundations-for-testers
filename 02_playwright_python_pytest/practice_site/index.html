@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Tester Practice Lab</title>
+<style>body{font:16px system-ui;max-width:1000px;margin:32px auto;padding:16px;background:#f6f7fb;color:#182032}section{background:white;border:1px solid #ddd;border-radius:10px;padding:20px;margin:16px 0}input,select,button{font:inherit;margin:8px;padding:8px}label{display:inline-block}table{border-collapse:collapse}td,th{padding:10px;border:1px solid #ccc}.product-card{padding:12px;border:1px solid #ccc;margin:8px}button{cursor:pointer}#hover-tip{display:none}#help-area:hover #hover-tip{display:block}</style></head>
+<body><h1>Tester Practice Lab</h1><p>Local browser automation exercises. Demo credentials: tester / secret123.</p>
+<nav><a href="#login">Login section</a> | <a href="/help.html" target="_blank" rel="noopener">Open help</a></nav>
+<img alt="Testing academy logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='40'%3E%3Crect width='100' height='40' fill='navy'/%3E%3C/svg%3E">
+<section id="login"><h2>Login</h2><form id="login-form">
+<label for="username">Username</label><input id="username" name="username" class="text-input user-field" placeholder="Enter username" data-testid="username-input" autocomplete="username">
+<label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password">
+<button type="submit" class="primary-button" data-testid="login-button">Sign in</button></form>
+<p id="login-message" role="status" data-testid="login-message"></p><button id="restore-session">Restore session</button><p id="session-message"></p></section>
+<section id="preferences"><h2>Preferences</h2><label for="country">Country</label><select id="country"><option value="">Choose</option><option value="IN">India</option><option value="GB">United Kingdom</option></select>
+<label><input id="terms" type="checkbox">Accept terms</label><label><input type="radio" name="plan" value="basic" checked>Basic plan</label><label><input type="radio" name="plan" value="pro">Pro plan</label>
+<label for="notes">Notes</label><textarea id="notes" placeholder="Write notes"></textarea>
+<label for="search">Search cases</label><input id="search"><p id="search-result"></p>
+<button title="Save preferences" id="save-preferences">Save</button><p id="saved"></p></section>
+<section id="products"><h2>Products</h2><article class="product-card" data-testid="product-card"><h3>Keyboard</h3><p>Price: 50</p><button>Add to cart</button></article>
+<article class="product-card" data-testid="product-card"><h3>Mouse</h3><p>Price: 20</p><button>Add to cart</button></article><p id="cart" data-testid="cart">Cart is empty</p></section>
+<section><h2>Execution table</h2><table id="results-table"><thead><tr><th>Case</th><th>Status</th></tr></thead><tbody><tr><td>TC01</td><td>PASS</td></tr><tr><td>TC02</td><td>FAIL</td></tr></tbody></table></section>
+<section><h2>Events and files</h2><button id="load-result">Load delayed result</button><p id="delayed-result"></p>
+<button id="confirm-delete">Delete record</button><p id="delete-result"></p><button id="prompt-name">Enter display name</button><p id="display-name"></p>
+<label for="upload">Upload evidence</label><input id="upload" type="file"><p id="upload-result"></p><a href="/report.csv" download="report.csv">Download report</a>
+<div id="help-area"><button title="Hover for help">Help hint</button><p id="hover-tip">Use stable locators</p></div><button id="double-click">Double click me</button><p id="double-result"></p></section>
+<section><h2>Embedded support</h2><iframe title="Support frame" src="/frame.html"></iframe></section>
+<section><h2>API</h2><button id="load-users">Load users</button><ul id="users"></ul></section>
+<script>
+const byId=id=>document.getElementById(id);
+byId('login-form').addEventListener('submit',e=>{e.preventDefault();const ok=byId('username').value==='tester'&&byId('password').value==='secret123';byId('login-message').textContent=ok?'Welcome, tester!':'Invalid credentials';if(ok)localStorage.setItem('demo_user','tester');});
+byId('restore-session').onclick=()=>byId('session-message').textContent=localStorage.getItem('demo_user')==='tester'?'Session restored for tester':'No saved session';
+byId('save-preferences').onclick=()=>byId('saved').textContent='Saved '+byId('country').value;
+byId('search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();byId('search-result').textContent='Searching: '+e.target.value;}});
+document.querySelectorAll('.product-card').forEach(card=>card.querySelector('button').onclick=()=>byId('cart').textContent='Added '+card.querySelector('h3').textContent);
+byId('load-result').onclick=()=>setTimeout(()=>byId('delayed-result').textContent='Report ready',350);
+byId('confirm-delete').onclick=()=>byId('delete-result').textContent=confirm('Delete this record?')?'Deleted':'Cancelled';
+byId('prompt-name').onclick=()=>{const name=prompt('Your name');byId('display-name').textContent=name===null?'Cancelled':'Hello '+name;};
+byId('upload').onchange=e=>byId('upload-result').textContent=e.target.files[0]?.name||'No file';
+byId('double-click').ondblclick=()=>byId('double-result').textContent='Double click received';
+byId('load-users').onclick=async()=>{const response=await fetch('/api/users');const data=await response.json();byId('users').replaceChildren(...data.users.map(user=>{const li=document.createElement('li');li.textContent=user.name;return li;}));};
+</script></body></html>

@@ -1,0 +1,7 @@
+case_id,module,status,response_ms,owner
+TC01,login,PASS,120,Asha
+TC02,checkout,FAIL,1200,Ravi
+TC03,search,PASS,200,Asha
+TC04,checkout,PASS,900,
+TC05,search,FAIL,600,Ravi
+TC01,login,PASS,120,Asha

@@ -1,0 +1,21 @@
+{
+  "collection": {
+    "total": 75,
+    "chromium": 37,
+    "firefox": 37,
+    "browser_independent_api": 1,
+    "default_public_skips": 4
+  },
+  "api_test": "passed",
+  "browser_startup": {
+    "chromium": {
+      "status": "failed_before_test",
+      "reason": "macOS MachPortRendezvousServer registration: Permission denied (1100)"
+    },
+    "firefox": {
+      "status": "failed_before_test",
+      "reason": "Process aborted with SIGABRT during startup; root cause not established from its log"
+    }
+  },
+  "full_browser_suite": "not_verified"
+}

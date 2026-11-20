@@ -1,0 +1,6 @@
+# Top-level versions used for validation; see VALIDATION.md for its limits.
+playwright==1.60.0
+pytest-playwright==0.7.1
+pytest==8.4.2
+pytest-html==4.2.0
+pytest-xdist==3.8.0
