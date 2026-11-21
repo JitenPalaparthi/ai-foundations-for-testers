@@ -15,8 +15,9 @@ Replace 1000 with 10000 and compare how much the mean and median change.
 
 import numpy as np
 
-response_ms = np.array([100, 200, 300, 400, 1000])
+response_ms = np.array([100, 200, 300, 400,800, 900,1000])
 print("Mean:", np.mean(response_ms))
 print("Median:", np.median(response_ms))
-print("P95:", np.percentile(response_ms, 95))
+print("Mode:", np.mode(response_ms))
+print("P50:", np.percentile(response_ms, 50))
 print("Maximum:", np.max(response_ms))

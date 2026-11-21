@@ -4,7 +4,9 @@ Time: 9 minutes
 Goal: Find response times exceeding a limit.
 
 Explanation:
-An array comparison creates a boolean mask with one value per element. Indexing with that mask selects matching elements. count_nonzero counts True values and all requires every value to be true. Exactly 800 ms is allowed by this acceptance rule.
+An array comparison creates a boolean mask with one value per element. Indexing with that mask selects matching elements.
+count_nonzero counts True values and all requires every value to be true.
+Exactly 800 ms is allowed by this acceptance rule.
 
 Expected result:
 [False False False True], [1200], Slow count: 1, Within limit: False.

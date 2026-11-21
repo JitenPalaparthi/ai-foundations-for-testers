@@ -2,7 +2,7 @@
 
 Achieve: Navigate to a page and verify its title and heading.
 Time: 6 minutes
-Command: python -m pytest test_01_first_test.py --browser chromium --browser firefox -v --headed --slowmo 350
+Command: python -m pytest test_01_first_test.py --browser chromium  --headed --slowmo 350
 
 Explanation:
 page is supplied by pytest-playwright. goto navigates. expect retries supported checks until they pass or time out. The page fixture owns browser-page cleanup.

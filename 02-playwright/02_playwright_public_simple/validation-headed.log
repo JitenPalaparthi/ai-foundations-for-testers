@@ -1,0 +1,2 @@
+PASS: 02_add_todo (sync)
+PASS: 02_add_todo (async)

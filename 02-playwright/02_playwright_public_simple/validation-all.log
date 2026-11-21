@@ -1,0 +1,85 @@
+
+RUN: sync/01_open_website.py
+Website title: React • TodoMVC
+PASS: 01_open_website (sync)
+
+RUN: sync/02_add_todo.py
+PASS: 02_add_todo (sync)
+
+RUN: sync/03_complete_todo.py
+PASS: 03_complete_todo (sync)
+
+RUN: sync/04_filter_todos.py
+PASS: 04_filter_todos (sync)
+
+RUN: sync/05_edit_todo.py
+PASS: 05_edit_todo (sync)
+
+RUN: sync/06_delete_todo.py
+PASS: 06_delete_todo (sync)
+
+RUN: sync/07_clear_completed.py
+PASS: 07_clear_completed (sync)
+
+RUN: sync/08_reload_persistence.py
+PASS: 08_reload_persistence (sync)
+
+RUN: sync/09_dropdown.py
+PASS: 09_dropdown (sync)
+
+RUN: sync/10_submit_form.py
+PASS: 10_submit_form (sync)
+
+RUN: async/01_open_website.py
+Website title: React • TodoMVC
+PASS: 01_open_website (async)
+
+RUN: async/02_add_todo.py
+PASS: 02_add_todo (async)
+
+RUN: async/03_complete_todo.py
+PASS: 03_complete_todo (async)
+
+RUN: async/04_filter_todos.py
+PASS: 04_filter_todos (async)
+
+RUN: async/05_edit_todo.py
+PASS: 05_edit_todo (async)
+
+RUN: async/06_delete_todo.py
+PASS: 06_delete_todo (async)
+
+RUN: async/07_clear_completed.py
+PASS: 07_clear_completed (async)
+
+RUN: async/08_reload_persistence.py
+PASS: 08_reload_persistence (async)
+
+RUN: async/09_dropdown.py
+PASS: 09_dropdown (async)
+
+RUN: async/10_submit_form.py
+PASS: 10_submit_form (async)
+
+RESULTS
+PASS sync/01_open_website.py
+PASS sync/02_add_todo.py
+PASS sync/03_complete_todo.py
+PASS sync/04_filter_todos.py
+PASS sync/05_edit_todo.py
+PASS sync/06_delete_todo.py
+PASS sync/07_clear_completed.py
+PASS sync/08_reload_persistence.py
+PASS sync/09_dropdown.py
+PASS sync/10_submit_form.py
+PASS async/01_open_website.py
+PASS async/02_add_todo.py
+PASS async/03_complete_todo.py
+PASS async/04_filter_todos.py
+PASS async/05_edit_todo.py
+PASS async/06_delete_todo.py
+PASS async/07_clear_completed.py
+PASS async/08_reload_persistence.py
+PASS async/09_dropdown.py
+PASS async/10_submit_form.py
+20 passed; 0 failed

@@ -24,7 +24,8 @@ assert report["status"].isin(["PASS", "FAIL"]).all(), "Unknown status"
 assert report["response_ms"].ge(0).all(), "Negative or missing response time"
 failures = report.loc[report["status"].eq("FAIL")]
 with TemporaryDirectory() as folder:
-    output = Path(folder) / "failures.csv"
+    output = Path("./") / "failures.csv"
+    print(output)
     failures.to_csv(output, index=False)
     reloaded = pd.read_csv(output)
     print(reloaded.to_string(index=False))

@@ -32,7 +32,7 @@ print(f"User {user} received: {cleaned}")
 
 print(10+20-20)
 print(10+20-20>5)
-print(10+20-20>5 and 10>5)
+print(10+20-20>5 and '10>5')
 print(10<<2)
 
 # Arithmetic

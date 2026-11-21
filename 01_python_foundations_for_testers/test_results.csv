@@ -5,3 +5,5 @@ TC03,search,PASS,200,Asha
 TC04,checkout,PASS,900,
 TC05,search,FAIL,600,Ravi
 TC01,login,PASS,120,Asha
+TC06,login,PASS,12000000,Jiten
+TC07,login,PASS,,Rahim
