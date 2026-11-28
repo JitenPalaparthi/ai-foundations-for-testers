@@ -7,11 +7,12 @@ import requests
 
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "embeddinggemma")
-LLM_MODEL = os.getenv("LLM_MODEL", "gemma3")
+LLM_MODEL = os.getenv("LLM_MODEL", "gemma3:1b")
 
 DOCUMENT_DIRECTORY = "documents"
 VECTOR_STORE_FILE = "vector_store.json"
 
+# Area to be considered for testing
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 100
 TOP_K = 3
@@ -59,7 +60,7 @@ QUESTION
                 {"role": "user", "content": user_prompt},
             ],
             "stream": False,
-            "options": {"temperature": 0.1},
+            "options": {"temperature": 0.1}, # are that the testers to consider
         },
         timeout=300,
     )

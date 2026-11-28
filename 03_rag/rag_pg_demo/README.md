@@ -34,6 +34,34 @@ Check:
 ollama list
 ```
 
+## To run all these things in docker 
+
+```bash
+
+
+## Running gemma
+
+```bash
+# run ollama
+docker run -d \
+  --name ollama \
+  -p 11434:11434 \
+  -v ollama_data:/root/.ollama \
+  ollama/ollama
+  
+# pull the model
+docker exec -it ollama ollama pull gemma3:1b
+
+#pull embeddingmodel 
+docker exec -it ollama ollama pull embeddinggemma
+```
+
+## To run database in docker 
+
+```bash
+docker compose up -d
+```
+
 ## 2. Create Python environment
 
 From this project directory:

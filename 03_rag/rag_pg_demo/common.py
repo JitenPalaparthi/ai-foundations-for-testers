@@ -7,13 +7,30 @@ CHAT_MODEL = "qwen3:0.6b"
 EMBED_MODEL = "nomic-embed-text"
 
 
-def load_documents():
-    text = Path("data/go.txt").read_text(encoding="utf-8")
-    # Simple paragraph chunking keeps this demo dependency-light and transparent.
-    chunks = [p.strip() for p in text.split("\n\n") if p.strip()]
-    return [Document(page_content=c, metadata={"source": "data/go.txt", "chunk": i})
-            for i, c in enumerate(chunks)]
+# def load_documents():
+#     text = Path("data/go.txt").read_text(encoding="utf-8")
+#     # Simple paragraph chunking keeps this demo dependency-light and transparent.
+#     chunks = [p.strip() for p in text.split("\n\n") if p.strip()]
+#     return [Document(page_content=c, metadata={"source": "data/go.txt", "chunk": i})
+#             for i, c in enumerate(chunks)]
 
+# from pathlib import Path
+# from langchain_core.documents import Document  # or your existing Document import
+
+def load_documents(directory: str = "data"):
+    documents = []
+    for file_path in sorted(Path(directory).glob("*.txt")):
+        text = file_path.read_text(encoding="utf-8")
+        # Simple paragraph chunking keeps this demo dependency-light and transparent.
+        chunks = [p.strip() for p in text.split("\n\n") if p.strip()]
+        for i, c in enumerate(chunks):
+            documents.append(
+                Document(
+                    page_content=c,
+                    metadata={"source": file_path.as_posix(), "chunk": i},
+                )
+            )
+    return documents
 
 def embeddings():
     return OllamaEmbeddings(model=EMBED_MODEL)

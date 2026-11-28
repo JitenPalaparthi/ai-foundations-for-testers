@@ -493,7 +493,7 @@ After understanding this version, useful upgrades are:
 
 ## Running gemma
 
-```
+```bash
 # run ollama
 docker run -d \
   --name ollama \
@@ -503,4 +503,7 @@ docker run -d \
   
 # pull the model
 docker exec -it ollama ollama pull gemma3:1b
+
+#pull embeddingmodel 
+docker exec -it ollama ollama pull embeddinggemma
 ```
