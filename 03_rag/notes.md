@@ -1,0 +1,20 @@
+- Long-Context Prompting or Context Stuffing  -> Technically can send lot of data to the propt and ask questions or decisions but there is context window
+
+- Context Window --> The amount of infomatiin that an LLM can process within a single request
+  - System Instructions
+  - User Prompt
+  - Conversation history
+  - Documents and retrived information
+  - Generated Response
+  - 
+- Computational Resource Consumption 
+  - input tokens
+  - GPU Computation
+  - GPU memory
+  - KV Cache
+  - Attention Computation
+  - API Cost
+  - Throughput
+  - Latency
+- Context Window Size
+  - 1 million input tokens --> 100k output tokens

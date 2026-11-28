@@ -7,12 +7,12 @@ Explanation:
 pytest discovers test_*.py files and test_* functions. A test passes when execution finishes without an unhandled exception or failed assertion. pytest explains values in failing asserts. These toy checks teach syntax; later examples call application functions.
 
 Expected result:
-3 passed when run with python -m pytest test_20_basic_assertions.py -v.
+4 passed when run with python -m pytest test_20_basic_assertions.py -v.
 
 Try it:
 Temporarily change actual_status to 500, run the file, read the failure, and restore 200.
 """
-
+# comment
 def test_success_status():
     actual_status = 200
     assert actual_status == 200
@@ -24,3 +24,7 @@ def test_response_time_at_boundary():
 
 def test_login_message():
     assert "successful" in "Login successful".lower()
+
+
+def test_login_message_fail():
+    assert not "signin" in "Login successful".lower()
